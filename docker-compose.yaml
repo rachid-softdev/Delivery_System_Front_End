@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  application:
+    container_name: ${FRONT_END_APP_CONTAINER_NAME}
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${FRONT_END_APP_HOST_PORT}:${FRONT_END_APP_CONTAINER_PORT}
+    environment:
+      - NG_API_BASE_URL=${NG_API_BASE_URL}
+
+volumes:
+  angularngixvolume:
